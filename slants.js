@@ -44,7 +44,7 @@ function drawCircles(stillColour){
         if(stillColour == 1) fill(255);
     for(let i = 0; i < 16; i++)
     {
-        ellipse(i * 20, 20, 20, 20);
+        ellipse(i * 20 + 80, 20 + 80, 40, 40);
 
     }
 }
