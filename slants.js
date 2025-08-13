@@ -26,6 +26,7 @@ function setup() {
     colourMode.position(1020, 20);
 
     Slider = createSlider(0, 255, 100);
+    Slider.position(1020, 40);
 
 
     //by default positional information in processing
