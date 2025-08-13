@@ -1,7 +1,5 @@
 
 let colourMode;
-let ellipseSize = 56
-
 //this function is called once at the start of a sketch
 function setup() {
 
@@ -39,19 +37,23 @@ function setup() {
 //if stillColour is truthy, image will be black or white
 //but not both (ie no illusion)
 function drawCircles(stillColour) {
- 
     let offset = 100;
-    let lineWidth = width-(2*offset);
-    let circleWidth = lineWidth/16;
-    let x = offset+circleWidth/2;
+    let lineWidth = 1000 - (2 * offset);
+    let circleWidth = lineWidth / 16;
+    let x = offset + circleWidth / 2;
     let y = 50;
+    let curr = 100;
 
     if (stillColour) {
         if (stillColour == 2) fill(0);
         if (stillColour == 1) fill(255);
-        for (let i = 0; i < 16; i++) {
-            ellipse(x*i, y, circleWidth,circleWidth);
+        for (let j = 0; j < 6; j++) {
+            for (let i = 0; i < 16; i++) {
+                curr = (curr+1)%2;
+                stroke(curr*255);
+                ellipse(x + i * circleWidth, y, circleWidth, circleWidth);
 
+            }
         }
     }
 }
@@ -59,10 +61,17 @@ function drawCircles(stillColour) {
 //if stillColour is truthy, image will be black or white
 //but not both (ie no illusion)
 function drawLines(stillColour) {
+
+    let offset = 100;
+    let lineWidth = width - (2 * offset);
+    let circleWidth = lineWidth / 16;
+    let x = offset + circleWidth / 2;
+    let y = 50;
+
     if (stillColour) {
         if (stillColour == 2) fill(0);
         if (stillColour == 1) fill(255);
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < 15; i++) {
             rect(i * ellipseSize + 50 + ellipseSize / 2, 50, 20, 10);
 
         }
@@ -76,7 +85,7 @@ function drawLines(stillColour) {
 //so that the illusion can be redrawn correctly after user input interaction
 function draw() {
     background(25, 55, 150);
-    
+
     c = int(colourMode.value());
     drawCircles(c);
     drawLines(c);
