@@ -17,11 +17,11 @@ function setup() {
     //illusion mode. place in top left
     
     colourMode = createRadio();
-    colourMode.option("black", 2);
-    colourMode.option("white", 1);
-    colourMode.option("illusion", 0);
+    colourMode.option("2", "black");
+    colourMode.option("1", "white");
+    colourMode.option("0", "illusion");
 
-    colourMode.selected(2);
+    colourMode.selected("2");
     colourMode.position(1020,20);
 
     //by default positional information in processing
