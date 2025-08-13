@@ -7,22 +7,22 @@ function setup() {
 
     //create a drawing surface on to the web page
     //this drawing surface is 1000 X 600
-    canvas = createCanvas(1000,600);
+    canvas = createCanvas(1000, 600);
 
     //move canvas to make way for radio buttons
-    canvas.position(20,20);
+    canvas.position(20, 20);
 
     //create the radio buttons that will allow us 
     //to choose between all black, all white and
     //illusion mode. place in top left
-    
+
     colourMode = createRadio();
     colourMode.option("2", "black");
     colourMode.option("1", "white");
     colourMode.option("0", "illusion");
 
     colourMode.selected("2");
-    colourMode.position(1020,20);
+    colourMode.position(1020, 20);
 
     //by default positional information in processing
     //are defined as the position of the top left "corner"
@@ -37,23 +37,28 @@ function setup() {
 
 //if stillColour is truthy, image will be black or white
 //but not both (ie no illusion)
-function drawCircles(stillColour){
-    if(stillColour)
-    {
-        if(stillColour == 2) fill(0);
-        if(stillColour == 1) fill(255);
-    for(let i = 0; i < 16; i++)
-    {
-        ellipse(i * 20 + 80, 20 + 80, 40, 40);
+function drawCircles(stillColour) {
+    if (stillColour) {
+        if (stillColour == 2) fill(0);
+        if (stillColour == 1) fill(255);
+        for (let i = 0; i < 16; i++) {
+            ellipse(i * 40 + 80, 20 + 80, 40, 40);
 
+        }
     }
-}
 }
 
 //if stillColour is truthy, image will be black or white
 //but not both (ie no illusion)
-function drawLines(stillColour){
+function drawLines(stillColour) {
+    if (stillColour) {
+        if (stillColour == 2) fill(0);
+        if (stillColour == 1) fill(255);
+        for (let i = 0; i < 16; i++) {
+            rect(i * 40 + 60, 20 + 60, 40, 20);
 
+        }
+    }
 }
 //this function is called once every 60 seconds unless
 //the noLoop() function is called
