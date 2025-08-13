@@ -1,6 +1,6 @@
 
 let colourMode;
-let ellipseSize = 100
+let ellipseSize = 56
 
 //this function is called once at the start of a sketch
 function setup() {
@@ -25,10 +25,6 @@ function setup() {
     colourMode.selected("2");
     colourMode.position(1020, 20);
 
-    Slider = createSlider(0, 255, 100);
-    Slider.position(1020, 40);
-
-
     //by default positional information in processing
     //are defined as the position of the top left "corner"
     //of the shape.  For our purposes it is much simpler
@@ -47,7 +43,7 @@ function drawCircles(stillColour) {
         if (stillColour == 2) fill(0);
         if (stillColour == 1) fill(255);
         for (let i = 0; i < 16; i++) {
-            ellipse(i * ellipseSize + 20, 20, ellipseSize, ellipseSize);
+            ellipse(i * ellipseSize + 50 + ellipseSize / 2, 50 + ellipseSize / 2, ellipseSize, ellipseSize);
 
         }
     }
@@ -60,7 +56,7 @@ function drawLines(stillColour) {
         if (stillColour == 2) fill(0);
         if (stillColour == 1) fill(255);
         for (let i = 0; i < 16; i++) {
-            rect(i * ellipseSize + 40, 20, 20, 10);
+            rect(i * ellipseSize + 50 + ellipseSize / 2, 50 + ellipseSize / 2, 20, 10);
 
         }
     }
@@ -73,7 +69,7 @@ function drawLines(stillColour) {
 //so that the illusion can be redrawn correctly after user input interaction
 function draw() {
     background(25, 55, 150);
-    ellipseSize = Slider.value()
+    
     c = int(colourMode.value());
     drawCircles(c);
     drawLines(c);
