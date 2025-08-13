@@ -62,7 +62,7 @@ function drawLines(stillColour){
 //However, as this code is used for breaking down the illusion, the noLoop() is commented out
 //so that the illusion can be redrawn correctly after user input interaction
 function draw() {
-    background(25, 55, 75);
+    background(25, 55, 150);
     c = int(colourMode.value());
     drawCircles(c);
     drawLines(c);
