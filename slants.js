@@ -1,5 +1,6 @@
 
 let colourMode;
+let ellipseSize = 100
 
 //this function is called once at the start of a sketch
 function setup() {
@@ -42,7 +43,7 @@ function drawCircles(stillColour) {
         if (stillColour == 2) fill(0);
         if (stillColour == 1) fill(255);
         for (let i = 0; i < 16; i++) {
-            ellipse(i * 40 + 80, 20 + 80, 40, 40);
+            ellipse(i * ellipseSize + 20, 20, ellipseSize, ellipseSize);
 
         }
     }
@@ -55,7 +56,7 @@ function drawLines(stillColour) {
         if (stillColour == 2) fill(0);
         if (stillColour == 1) fill(255);
         for (let i = 0; i < 16; i++) {
-            rect(i * 40 + 60, 20 + 60, 40, 20);
+            rect(i * ellipseSize + 40, 20, 20, 10);
 
         }
     }
