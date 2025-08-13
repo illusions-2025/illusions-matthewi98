@@ -17,11 +17,11 @@ function setup() {
     //illusion mode. place in top left
     
     colourMode = createRadio();
-    colourMode.option("2","black");
-    colourMode.option("1","white");
-    colourMode.option("0","illusion");
+    colourMode.option("black", 2);
+    colourMode.option("white", 1);
+    colourMode.option("illusion", 0);
 
-    colourMode.selected("2");
+    colourMode.selected(2);
     colourMode.position(1020,20);
 
     //by default positional information in processing
@@ -38,7 +38,16 @@ function setup() {
 //if stillColour is truthy, image will be black or white
 //but not both (ie no illusion)
 function drawCircles(stillColour){
+    if(stillColour)
+    {
+        if(stillColour == 2) fill(0);
+        if(stillColour == 1) fill(255);
+    for(let i = 0; i < 16; i++)
+    {
+        ellipse(i * 20, 20, 20, 20);
 
+    }
+}
 }
 
 //if stillColour is truthy, image will be black or white
@@ -53,7 +62,7 @@ function drawLines(stillColour){
 //However, as this code is used for breaking down the illusion, the noLoop() is commented out
 //so that the illusion can be redrawn correctly after user input interaction
 function draw() {
-    background(150)
+    background(25, 55, 75);
     c = int(colourMode.value());
     drawCircles(c);
     drawLines(c);
