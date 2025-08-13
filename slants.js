@@ -42,20 +42,18 @@ function drawCircles(stillColour) {
     let circleWidth = lineWidth / 16;
     let x = offset + circleWidth / 2;
     let y = 50;
-    let curr = 100;
+    let curr = stillColour % 2;
 
-    if (stillColour) {
-        if (stillColour == 2) fill(0);
-        if (stillColour == 1) fill(255);
         for (let j = 0; j < 6; j++) {
             for (let i = 0; i < 16; i++) {
                 curr = (curr+1)%2;
                 stroke(curr*255);
                 ellipse(x + i * circleWidth, y, circleWidth, circleWidth);
-
+                if(!stillColour)
+                    curr = (curr+1)%2
             }
         }
-    }
+    
 }
 
 //if stillColour is truthy, image will be black or white
